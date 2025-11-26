@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FacturacionVinilosApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(FacturacionVinilosApplication.class, args);
 	}
 
