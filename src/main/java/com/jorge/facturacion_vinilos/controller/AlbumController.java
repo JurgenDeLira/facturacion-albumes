@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/albumes")
+@RequestMapping("/api/v2/albumes")
 public class AlbumController {
     private final AlbumService albumService;
 

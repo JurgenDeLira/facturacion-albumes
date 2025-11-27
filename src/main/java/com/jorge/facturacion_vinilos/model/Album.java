@@ -28,6 +28,7 @@ public class Album {
     private String detalle;
     private BigDecimal precio;
 
+    @Column(updatable = false)//para que no se actualice si hay actualización
     @CreationTimestamp
     private LocalDateTime fechaCreado;
     @UpdateTimestamp
