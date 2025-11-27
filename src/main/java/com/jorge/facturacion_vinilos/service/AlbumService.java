@@ -1,7 +1,7 @@
 package com.jorge.facturacion_vinilos.service;
 
 
-import com.jorge.facturacion_vinilos.dto.AlbumDto;
+import com.jorge.facturacion_vinilos.dto.AlbumDTO;
 import com.jorge.facturacion_vinilos.model.Album;
 import com.jorge.facturacion_vinilos.repository.AlbumRepository;
 import org.modelmapper.ModelMapper;
@@ -24,23 +24,23 @@ public class AlbumService {
     }
 
     //save
-    public AlbumDto save (AlbumDto albumDto){
+    public AlbumDTO save (AlbumDTO albumDto){
         Album album = modelMapper.map(albumDto, Album.class); //transformo DTO a Album
-        return modelMapper.map(albumRepository.save(album), AlbumDto.class);
+        return modelMapper.map(albumRepository.save(album), AlbumDTO.class);
     }
 
     //findAll
-    public List<AlbumDto> findAll(){
+    public List<AlbumDTO> findAll(){
         return albumRepository.findAll() //obtengo lista de entidades
                 .stream() //transformo a stream(se procesa elemento por elemnto
-                .map(album -> modelMapper.map(album, AlbumDto.class)) //transforma cada album a albumdto
+                .map(album -> modelMapper.map(album, AlbumDTO.class)) //transforma cada album a albumdto
                 .toList(); //volver a una lista
     }
 
     //findById
-    public Optional<AlbumDto> findById(Integer id){
+    public Optional<AlbumDTO> findById(Integer id){
         return albumRepository.findById(id)
-                .map(album -> modelMapper.map(album, AlbumDto.class));
+                .map(album -> modelMapper.map(album, AlbumDTO.class));
     }
 
     //deleteById
@@ -54,11 +54,11 @@ public class AlbumService {
     }
 
     //update
-    public Optional<AlbumDto> update(AlbumDto albumDto){
+    public Optional<AlbumDTO> update(AlbumDTO albumDto){
         Album album = modelMapper.map(albumDto, Album.class);
         return albumRepository.findById(album.getId()).map(
                 albumDB -> {
-                    return modelMapper.map(albumRepository.save(album), AlbumDto.class);
+                    return modelMapper.map(albumRepository.save(album), AlbumDTO.class);
                 }
         );
     }

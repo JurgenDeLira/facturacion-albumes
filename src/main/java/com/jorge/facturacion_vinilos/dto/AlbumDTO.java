@@ -5,7 +5,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data //Para crear métodos getter y setter y sobreescribir toString
-public class AlbumDto {
+public class AlbumDTO {
     private Integer id;
     private String titulo;
     private String artista;
