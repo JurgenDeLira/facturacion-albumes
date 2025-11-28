@@ -2,6 +2,7 @@ package com.jorge.facturacion_vinilos.controller;
 
 import com.jorge.facturacion_vinilos.dto.AlbumDTO;
 import com.jorge.facturacion_vinilos.service.AlbumService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v2/albumes")
+@Slf4j
 public class AlbumController {
     private final AlbumService albumService;
 
@@ -18,8 +20,10 @@ public class AlbumController {
     }
 
     @PostMapping
-    public ResponseEntity<AlbumDTO> save (@RequestBody AlbumDTO albumDto){
-        return new ResponseEntity<>(albumService.save(albumDto), HttpStatus.CREATED);
+    public ResponseEntity<AlbumDTO> save (@RequestBody AlbumDTO albumDTO){
+        System.out.println(albumDTO.getTitulo());
+        log.info("Información albumDTO {}", albumDTO);
+        return new ResponseEntity<>(albumService.save(albumDTO), HttpStatus.CREATED);
     }
 
     @GetMapping

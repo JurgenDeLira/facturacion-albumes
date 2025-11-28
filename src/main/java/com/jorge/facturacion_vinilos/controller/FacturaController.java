@@ -44,8 +44,11 @@ public class FacturaController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable Integer id){
-        facturaService.deleteById(id);
+    public ResponseEntity<Void> deleteById(@PathVariable Integer id){
+        if (facturaService.deleteById(id)){
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 
 }

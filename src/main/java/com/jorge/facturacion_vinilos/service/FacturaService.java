@@ -49,8 +49,13 @@ public class FacturaService {
     }
 
     //deleteById
-    public void deleteById(Integer id) {
-        facturaRepository.findById(id);
+    @Transactional
+    public boolean deleteById(Integer id){
+        if(!facturaRepository.existsById(id)){
+            return false;
+        }
+        facturaRepository.deleteById(id);
+        return true;
     }
 
     //save
