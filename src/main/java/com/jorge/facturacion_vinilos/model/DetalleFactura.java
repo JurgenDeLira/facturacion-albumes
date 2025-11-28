@@ -18,7 +18,7 @@ public class DetalleFactura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer idProducto;
+    private Integer idAlbum;
     private Integer cantidad;
     private BigDecimal precio;
     private BigDecimal total;

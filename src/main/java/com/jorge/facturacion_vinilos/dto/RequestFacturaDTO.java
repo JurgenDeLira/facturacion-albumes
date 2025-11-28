@@ -8,5 +8,5 @@ import java.util.Set;
 public class RequestFacturaDTO {
     private Integer id;
     private String numeroFactura;
-    private Set<ResponseDetalleFacturaDTO> detalleFacturas;
+    private Set<RequestDetalleFacturaDTO> detalleFacturas;
 }
